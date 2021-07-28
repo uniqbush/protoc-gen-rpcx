@@ -1,4 +1,4 @@
-module github.com/rpcxio/protoc-gen-gogorpcx
+module github.com/uniqbush/protoc-gen-rpcx
 
 go 1.14
 

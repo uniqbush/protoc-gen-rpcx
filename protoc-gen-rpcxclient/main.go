@@ -30,7 +30,7 @@ package main
 
 import (
 	"github.com/gogo/protobuf/vanity"
-	"github.com/rpcxio/protoc-gen-gogorpcx/client"
+	"github.com/uniqbush/protoc-gen-rpcx/client"
 )
 
 func main() {

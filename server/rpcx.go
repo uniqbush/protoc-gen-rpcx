@@ -2,7 +2,7 @@ package server
 
 import (
 	"fmt"
-	"github.com/rpcxio/protoc-gen-gogorpcx/utils"
+	"github.com/uniqbush/protoc-gen-rpcx/utils"
 	"io/ioutil"
 	"os"
 	"regexp"
