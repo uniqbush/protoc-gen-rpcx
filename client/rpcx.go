@@ -3,6 +3,7 @@ package client
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 
 	pb "github.com/gogo/protobuf/protoc-gen-gogo/descriptor"
@@ -63,8 +64,16 @@ func (p *rpcx) Generate(file *generator.FileDescriptor) {
 		p.gen.Reset()
 		p.generateService(file, service, i)
 		serviceName := strings.ToLower(service.GetName())
+
+		path := fmt.Sprintf("../%s", serviceName)
+
+		err := os.MkdirAll(path, 0644)
+		if err != nil {
+			panic(err)
+		}
+
 		//b := append([]byte(fmt.Sprintf("package %s\n", serviceName)), p.gen.Bytes()...)
-		err := ioutil.WriteFile(fmt.Sprintf("%sclient.go", serviceName), p.gen.Bytes(), 0644)
+		err = ioutil.WriteFile(fmt.Sprintf("../%s/client.go", serviceName), p.gen.Bytes(), 0644)
 		if err != nil {
 			panic(err)
 		}
